@@ -7,8 +7,8 @@
     <ProjectGuid>{1B24BC4A-6E4D-4FEB-B5D5-C9684C60A308}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Storage.Tests</RootNamespace>
-    <AssemblyName>Storage.Tests</AssemblyName>
+    <RootNamespace>Infra.Tests</RootNamespace>
+    <AssemblyName>Infra.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -25,9 +25,9 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,7 +41,7 @@
     <DelaySign>false</DelaySign>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Jeff.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>SigningKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -49,6 +49,9 @@
   <ItemGroup>
     <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.3.6\lib\net45\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime.Azure, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.Azure.3.3.5\lib\net45\Microsoft.Rest.ClientRuntime.Azure.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.1.11\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
@@ -70,21 +73,32 @@
   <ItemGroup>
     <Compile Include="ClientTests.cs" />
     <Compile Include="Common.cs" />
+    <Compile Include="FabricTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueueTests.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="AlertTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SigningKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Admin.Infra\Admin.Infra.csproj">
+      <Project>{4960acde-30d6-4476-8b8d-40e51abee505}</Project>
+      <Name>Admin.Infra</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\SDKCommon\TestCommon\TestCommon.csproj">
       <Project>{eae2ae14-948d-4613-a4e8-14c50d8d0472}</Project>
       <Name>TestCommon</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Admin.Storage\Admin.Storage.csproj">
-      <Project>{4960acde-30d6-4476-8b8d-40e51abee505}</Project>
-      <Name>Admin.Storage</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

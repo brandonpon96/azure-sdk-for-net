@@ -37,7 +37,7 @@ namespace TestCommon
             if (Token == null) {
                 var context = new AuthenticationContext("https://login.windows.net/" + tenantId, false);
 
-                var userCredentials = new UserCredential(username, password);
+                var userCredentials = new UserPasswordCredential(username, password);
                 var authResult = context.AcquireTokenAsync(applicationId, clientId, userCredentials).Result;
 
                 if (authResult == null) {

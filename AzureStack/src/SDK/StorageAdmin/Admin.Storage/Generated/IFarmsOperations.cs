@@ -202,7 +202,7 @@ namespace Microsoft.AzureStack.Storage.Admin
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<string>> GarbageCollectWithHttpMessagesAsync(string resourceGroupName, string farmId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<string>> StartGarbageCollectWithHttpMessagesAsync(string resourceGroupName, string farmId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// TODO
         /// </summary>
@@ -229,6 +229,6 @@ namespace Microsoft.AzureStack.Storage.Admin
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<string>> GargbageCollectStatusWithHttpMessagesAsync(string resourceGroupName, string farmId, string operationId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<string>> GetGarbageCollectStateWithHttpMessagesAsync(string resourceGroupName, string farmId, string operationId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

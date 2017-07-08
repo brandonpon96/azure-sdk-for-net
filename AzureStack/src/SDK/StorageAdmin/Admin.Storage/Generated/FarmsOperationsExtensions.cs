@@ -289,9 +289,9 @@ namespace Microsoft.AzureStack.Storage.Admin
             /// <param name='farmId'>
             /// Th name of the farm.
             /// </param>
-            public static string GarbageCollect(this IFarmsOperations operations, string resourceGroupName, string farmId)
+            public static string StartGarbageCollect(this IFarmsOperations operations, string resourceGroupName, string farmId)
             {
-                return operations.GarbageCollectAsync(resourceGroupName, farmId).GetAwaiter().GetResult();
+                return operations.StartGarbageCollectAsync(resourceGroupName, farmId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -309,9 +309,9 @@ namespace Microsoft.AzureStack.Storage.Admin
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> GarbageCollectAsync(this IFarmsOperations operations, string resourceGroupName, string farmId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> StartGarbageCollectAsync(this IFarmsOperations operations, string resourceGroupName, string farmId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GarbageCollectWithHttpMessagesAsync(resourceGroupName, farmId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.StartGarbageCollectWithHttpMessagesAsync(resourceGroupName, farmId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -331,9 +331,9 @@ namespace Microsoft.AzureStack.Storage.Admin
             /// </param>
             /// <param name='operationId'>
             /// </param>
-            public static string GargbageCollectStatus(this IFarmsOperations operations, string resourceGroupName, string farmId, string operationId)
+            public static string GetGarbageCollectState(this IFarmsOperations operations, string resourceGroupName, string farmId, string operationId)
             {
-                return operations.GargbageCollectStatusAsync(resourceGroupName, farmId, operationId).GetAwaiter().GetResult();
+                return operations.GetGarbageCollectStateAsync(resourceGroupName, farmId, operationId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -353,9 +353,9 @@ namespace Microsoft.AzureStack.Storage.Admin
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> GargbageCollectStatusAsync(this IFarmsOperations operations, string resourceGroupName, string farmId, string operationId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> GetGarbageCollectStateAsync(this IFarmsOperations operations, string resourceGroupName, string farmId, string operationId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GargbageCollectStatusWithHttpMessagesAsync(resourceGroupName, farmId, operationId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetGarbageCollectStateWithHttpMessagesAsync(resourceGroupName, farmId, operationId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
