@@ -63,6 +63,9 @@ namespace Microsoft.AzureStack.Infra.Admin
         /// <param name='region'>
         /// TODO
         /// </param>
+        /// <param name='alertName'>
+        /// TODO
+        /// </param>
         /// <param name='parameter'>
         /// </param>
         /// <param name='customHeaders'>
@@ -80,7 +83,7 @@ namespace Microsoft.AzureStack.Infra.Admin
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<string>> UpdateMethodWithHttpMessagesAsync(string region, Alert parameter = default(Alert), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<string>> UpdateMethodWithHttpMessagesAsync(string region, string alertName, Alert parameter = default(Alert), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <param name='nextPageLink'>
         /// The NextLink from the previous successful call to List operation.
         /// </param>

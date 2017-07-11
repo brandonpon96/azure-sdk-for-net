@@ -85,11 +85,14 @@ namespace Microsoft.AzureStack.Infra.Admin
             /// <param name='region'>
             /// TODO
             /// </param>
+            /// <param name='alertName'>
+            /// TODO
+            /// </param>
             /// <param name='parameter'>
             /// </param>
-            public static string UpdateMethod(this IAlertsOperations operations, string region, Alert parameter = default(Alert))
+            public static string UpdateMethod(this IAlertsOperations operations, string region, string alertName, Alert parameter = default(Alert))
             {
-                return operations.UpdateMethodAsync(region, parameter).GetAwaiter().GetResult();
+                return operations.UpdateMethodAsync(region, alertName, parameter).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -98,14 +101,17 @@ namespace Microsoft.AzureStack.Infra.Admin
             /// <param name='region'>
             /// TODO
             /// </param>
+            /// <param name='alertName'>
+            /// TODO
+            /// </param>
             /// <param name='parameter'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> UpdateMethodAsync(this IAlertsOperations operations, string region, Alert parameter = default(Alert), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> UpdateMethodAsync(this IAlertsOperations operations, string region, string alertName, Alert parameter = default(Alert), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.UpdateMethodWithHttpMessagesAsync(region, parameter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.UpdateMethodWithHttpMessagesAsync(region, alertName, parameter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

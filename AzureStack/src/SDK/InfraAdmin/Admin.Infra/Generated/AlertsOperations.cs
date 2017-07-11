@@ -422,6 +422,9 @@ namespace Microsoft.AzureStack.Infra.Admin
         /// <param name='region'>
         /// TODO
         /// </param>
+        /// <param name='alertName'>
+        /// TODO
+        /// </param>
         /// <param name='parameter'>
         /// </param>
         /// <param name='customHeaders'>
@@ -445,7 +448,7 @@ namespace Microsoft.AzureStack.Infra.Admin
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<string>> UpdateMethodWithHttpMessagesAsync(string region, Alert parameter = default(Alert), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<string>> UpdateMethodWithHttpMessagesAsync(string region, string alertName, Alert parameter = default(Alert), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (Client.SubscriptionId == null)
             {
@@ -454,6 +457,10 @@ namespace Microsoft.AzureStack.Infra.Admin
             if (region == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "region");
+            }
+            if (alertName == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "alertName");
             }
             string apiVersion = "2016-05-01";
             // Tracing
@@ -464,6 +471,7 @@ namespace Microsoft.AzureStack.Infra.Admin
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("region", region);
+                tracingParameters.Add("alertName", alertName);
                 tracingParameters.Add("apiVersion", apiVersion);
                 tracingParameters.Add("parameter", parameter);
                 tracingParameters.Add("cancellationToken", cancellationToken);
@@ -474,6 +482,7 @@ namespace Microsoft.AzureStack.Infra.Admin
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourceGroups/system.{region}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{region}/Alerts/{alertName}").ToString();
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(Client.SubscriptionId));
             _url = _url.Replace("{region}", System.Uri.EscapeDataString(region));
+            _url = _url.Replace("{alertName}", System.Uri.EscapeDataString(alertName));
             List<string> _queryParameters = new List<string>();
             if (apiVersion != null)
             {
