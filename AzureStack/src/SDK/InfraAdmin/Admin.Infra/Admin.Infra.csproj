@@ -61,7 +61,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Generated\**\*" />
+    <Compile Include="Generated\AlertsOperations.cs" />
+    <Compile Include="Generated\AlertsOperationsExtensions.cs" />
+    <Compile Include="Generated\IAlertsOperations.cs" />
+    <Compile Include="Generated\IInfraAdminClient.cs" />
+    <Compile Include="Generated\IInfraRolesOperations.cs" />
+    <Compile Include="Generated\ILocationsOperations.cs" />
+    <Compile Include="Generated\ILogicalNetworksOperations.cs" />
+    <Compile Include="Generated\InfraAdminClient.cs" />
+    <Compile Include="Generated\InfraRolesOperations.cs" />
+    <Compile Include="Generated\InfraRolesOperationsExtensions.cs" />
+    <Compile Include="Generated\IPoolsOperations.cs" />
+    <Compile Include="Generated\IScaleUnitsOperations.cs" />
+    <Compile Include="Generated\IStorageOperations.cs" />
+    <Compile Include="Generated\IUpdatesOperations.cs" />
+    <Compile Include="Generated\LocationsOperations.cs" />
+    <Compile Include="Generated\LocationsOperationsExtensions.cs" />
+    <Compile Include="Generated\LogicalNetworksOperations.cs" />
+    <Compile Include="Generated\LogicalNetworksOperationsExtensions.cs" />
+    <Compile Include="Generated\Models\Alert.cs" />
+    <Compile Include="Generated\Models\AlertProperties.cs" />
+    <Compile Include="Generated\Models\AlertPropertiesModel.cs" />
+    <Compile Include="Generated\Models\Gateway.cs" />
+    <Compile Include="Generated\Models\GatewayList.cs" />
+    <Compile Include="Generated\Models\GatewayProperties.cs" />
+    <Compile Include="Generated\Models\GeoLocation.cs" />
+    <Compile Include="Generated\Models\InfraRole.cs" />
+    <Compile Include="Generated\Models\InfraRoleInstance.cs" />
+    <Compile Include="Generated\Models\InfraRoleInstanceProperties.cs" />
+    <Compile Include="Generated\Models\IpPool.cs" />
+    <Compile Include="Generated\Models\LogicalNetworkList.cs" />
+    <Compile Include="Generated\Models\Page.cs" />
+    <Compile Include="Generated\Models\ResourceBase.cs" />
+    <Compile Include="Generated\Models\Update.cs" />
+    <Compile Include="Generated\Models\UpdateProperties.cs" />
+    <Compile Include="Generated\PoolsOperations.cs" />
+    <Compile Include="Generated\PoolsOperationsExtensions.cs" />
+    <Compile Include="Generated\ScaleUnitsOperations.cs" />
+    <Compile Include="Generated\ScaleUnitsOperationsExtensions.cs" />
+    <Compile Include="Generated\StorageOperations.cs" />
+    <Compile Include="Generated\StorageOperationsExtensions.cs" />
+    <Compile Include="Generated\UpdatesOperations.cs" />
+    <Compile Include="Generated\UpdatesOperationsExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.Rest.Azure;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+using System;
+using System.Text;
+using System.Collections.Generic;
 
 using Microsoft.AzureStack.Infra.Admin;
 using TestCommon;
@@ -19,10 +24,10 @@ namespace Infra.Tests
 
             // validate objects
             Assert.IsNotNull(client.Alerts);
-            Assert.IsNotNull(client.Fabric);
+            Assert.IsNotNull(client.Storage);
             Assert.IsNotNull(client.Locations);
             Assert.IsNotNull(client.Pools);
-            Assert.IsNotNull(client.Roles);
+            Assert.IsNotNull(client.InfraRoles);
             Assert.IsNotNull(client.Updates);
 
             // validate properties
@@ -30,5 +35,6 @@ namespace Infra.Tests
 
             return client;
         }
+        
     }
 }

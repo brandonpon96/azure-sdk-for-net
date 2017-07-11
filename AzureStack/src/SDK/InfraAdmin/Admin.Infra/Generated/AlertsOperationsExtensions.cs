@@ -23,7 +23,7 @@ namespace Microsoft.AzureStack.Infra.Admin
             /// <param name='region'>
             /// TODO
             /// </param>
-            public static IPage<string> List(this IAlertsOperations operations, string region)
+            public static IPage<Alert> List(this IAlertsOperations operations, string region)
             {
                 return operations.ListAsync(region).GetAwaiter().GetResult();
             }
@@ -37,7 +37,7 @@ namespace Microsoft.AzureStack.Infra.Admin
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<string>> ListAsync(this IAlertsOperations operations, string region, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<Alert>> ListAsync(this IAlertsOperations operations, string region, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListWithHttpMessagesAsync(region, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -87,7 +87,7 @@ namespace Microsoft.AzureStack.Infra.Admin
             /// </param>
             /// <param name='parameter'>
             /// </param>
-            public static string UpdateMethod(this IAlertsOperations operations, string region, string parameter = default(string))
+            public static string UpdateMethod(this IAlertsOperations operations, string region, Alert parameter = default(Alert))
             {
                 return operations.UpdateMethodAsync(region, parameter).GetAwaiter().GetResult();
             }
@@ -103,7 +103,7 @@ namespace Microsoft.AzureStack.Infra.Admin
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> UpdateMethodAsync(this IAlertsOperations operations, string region, string parameter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> UpdateMethodAsync(this IAlertsOperations operations, string region, Alert parameter = default(Alert), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UpdateMethodWithHttpMessagesAsync(region, parameter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -117,7 +117,7 @@ namespace Microsoft.AzureStack.Infra.Admin
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static IPage<string> ListNext(this IAlertsOperations operations, string nextPageLink)
+            public static IPage<Alert> ListNext(this IAlertsOperations operations, string nextPageLink)
             {
                 return operations.ListNextAsync(nextPageLink).GetAwaiter().GetResult();
             }
@@ -131,7 +131,7 @@ namespace Microsoft.AzureStack.Infra.Admin
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<string>> ListNextAsync(this IAlertsOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<Alert>> ListNextAsync(this IAlertsOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {

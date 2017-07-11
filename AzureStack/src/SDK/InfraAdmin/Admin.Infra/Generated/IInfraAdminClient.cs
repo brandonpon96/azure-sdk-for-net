@@ -61,9 +61,9 @@ namespace Microsoft.AzureStack.Infra.Admin
 
 
         /// <summary>
-        /// Gets the INetworkOperations.
+        /// Gets the ILogicalNetworksOperations.
         /// </summary>
-        INetworkOperations Network { get; }
+        ILogicalNetworksOperations LogicalNetworks { get; }
 
         /// <summary>
         /// Gets the ILocationsOperations.
@@ -81,14 +81,19 @@ namespace Microsoft.AzureStack.Infra.Admin
         IPoolsOperations Pools { get; }
 
         /// <summary>
-        /// Gets the IFabricOperations.
+        /// Gets the IInfraRolesOperations.
         /// </summary>
-        IFabricOperations Fabric { get; }
+        IInfraRolesOperations InfraRoles { get; }
 
         /// <summary>
-        /// Gets the IRolesOperations.
+        /// Gets the IScaleUnitsOperations.
         /// </summary>
-        IRolesOperations Roles { get; }
+        IScaleUnitsOperations ScaleUnits { get; }
+
+        /// <summary>
+        /// Gets the IStorageOperations.
+        /// </summary>
+        IStorageOperations Storage { get; }
 
         /// <summary>
         /// Gets the IUpdatesOperations.

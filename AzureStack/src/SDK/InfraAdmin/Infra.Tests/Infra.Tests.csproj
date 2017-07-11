@@ -71,9 +71,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientTests.cs" />
+    <Compile Include="tests\ClientTests.cs" />
     <Compile Include="Common.cs" />
-    <Compile Include="FabricTest.cs" />
+    <Compile Include="tests\InfraRoleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -81,6 +81,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="AlertTests.cs" />
+    <Compile Include="tests\PoolTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

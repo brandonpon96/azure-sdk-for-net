@@ -109,5 +109,27 @@ namespace TestCommon
                 return false;
             };
         }
+
+        public static void MapOverIPage<T>(IPage<T> curr, Func<string, IPage<T>> getNext, Action<T> action = default(Action<T>), Action final = default(Action))
+        {
+            for (;;) {
+                foreach (var obj in curr) {
+                    action(obj);
+                }
+                if (string.IsNullOrEmpty(curr.NextPageLink)) {
+                    break;
+                }
+                curr = getNext(curr.NextPageLink);
+            }
+            final();
+        }
+
+        public static void WriteIPagesToFile<T>(IPage<T> start, Func<string, IPage<T>> getNext, string filename, Func<T,string> toString)
+        {
+            StringBuilder sb = new StringBuilder();
+            Action<T> action = (obj) => sb.Append(toString(obj));
+            Action final = () => System.IO.File.WriteAllText(filename, sb.ToString());
+            MapOverIPage<T>(start, getNext, action, final);
+        }
     }
 }

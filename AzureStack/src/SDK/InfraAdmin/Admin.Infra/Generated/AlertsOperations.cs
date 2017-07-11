@@ -70,7 +70,7 @@ namespace Microsoft.AzureStack.Infra.Admin
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<string>>> ListWithHttpMessagesAsync(string region, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Alert>>> ListWithHttpMessagesAsync(string region, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (Client.SubscriptionId == null)
             {
@@ -196,7 +196,7 @@ namespace Microsoft.AzureStack.Infra.Admin
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<IPage<string>>();
+            var _result = new AzureOperationResponse<IPage<Alert>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -209,7 +209,7 @@ namespace Microsoft.AzureStack.Infra.Admin
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<string>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<Alert>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -445,7 +445,7 @@ namespace Microsoft.AzureStack.Infra.Admin
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<string>> UpdateMethodWithHttpMessagesAsync(string region, string parameter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<string>> UpdateMethodWithHttpMessagesAsync(string region, Alert parameter = default(Alert), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (Client.SubscriptionId == null)
             {
@@ -634,7 +634,7 @@ namespace Microsoft.AzureStack.Infra.Admin
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IPage<string>>> ListNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IPage<Alert>>> ListNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (nextPageLink == null)
             {
@@ -748,7 +748,7 @@ namespace Microsoft.AzureStack.Infra.Admin
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<IPage<string>>();
+            var _result = new AzureOperationResponse<IPage<Alert>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -761,7 +761,7 @@ namespace Microsoft.AzureStack.Infra.Admin
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<string>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<Alert>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

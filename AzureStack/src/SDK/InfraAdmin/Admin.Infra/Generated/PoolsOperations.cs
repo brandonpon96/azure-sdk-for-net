@@ -434,7 +434,7 @@ namespace Microsoft.AzureStack.Infra.Admin
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<string>> ListGatewaysWithHttpMessagesAsync(string region, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<GatewayList>> ListGatewaysWithHttpMessagesAsync(string region, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (Client.SubscriptionId == null)
             {
@@ -560,7 +560,7 @@ namespace Microsoft.AzureStack.Infra.Admin
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<string>();
+            var _result = new AzureOperationResponse<GatewayList>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -573,7 +573,7 @@ namespace Microsoft.AzureStack.Infra.Admin
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<string>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<GatewayList>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

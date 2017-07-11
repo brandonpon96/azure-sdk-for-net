@@ -79,7 +79,7 @@ namespace Microsoft.AzureStack.Infra.Admin
             /// <param name='region'>
             /// TODO
             /// </param>
-            public static string ListGateways(this IPoolsOperations operations, string region)
+            public static GatewayList ListGateways(this IPoolsOperations operations, string region)
             {
                 return operations.ListGatewaysAsync(region).GetAwaiter().GetResult();
             }
@@ -93,7 +93,7 @@ namespace Microsoft.AzureStack.Infra.Admin
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> ListGatewaysAsync(this IPoolsOperations operations, string region, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<GatewayList> ListGatewaysAsync(this IPoolsOperations operations, string region, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListGatewaysWithHttpMessagesAsync(region, null, cancellationToken).ConfigureAwait(false))
                 {

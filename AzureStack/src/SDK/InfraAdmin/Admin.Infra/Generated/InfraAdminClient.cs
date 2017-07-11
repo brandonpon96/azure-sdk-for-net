@@ -64,9 +64,9 @@ namespace Microsoft.AzureStack.Infra.Admin
         public bool? GenerateClientRequestId { get; set; }
 
         /// <summary>
-        /// Gets the INetworkOperations.
+        /// Gets the ILogicalNetworksOperations.
         /// </summary>
-        public virtual INetworkOperations Network { get; private set; }
+        public virtual ILogicalNetworksOperations LogicalNetworks { get; private set; }
 
         /// <summary>
         /// Gets the ILocationsOperations.
@@ -84,14 +84,19 @@ namespace Microsoft.AzureStack.Infra.Admin
         public virtual IPoolsOperations Pools { get; private set; }
 
         /// <summary>
-        /// Gets the IFabricOperations.
+        /// Gets the IInfraRolesOperations.
         /// </summary>
-        public virtual IFabricOperations Fabric { get; private set; }
+        public virtual IInfraRolesOperations InfraRoles { get; private set; }
 
         /// <summary>
-        /// Gets the IRolesOperations.
+        /// Gets the IScaleUnitsOperations.
         /// </summary>
-        public virtual IRolesOperations Roles { get; private set; }
+        public virtual IScaleUnitsOperations ScaleUnits { get; private set; }
+
+        /// <summary>
+        /// Gets the IStorageOperations.
+        /// </summary>
+        public virtual IStorageOperations Storage { get; private set; }
 
         /// <summary>
         /// Gets the IUpdatesOperations.
@@ -299,12 +304,13 @@ namespace Microsoft.AzureStack.Infra.Admin
         /// </summary>
         private void Initialize()
         {
-            Network = new NetworkOperations(this);
+            LogicalNetworks = new LogicalNetworksOperations(this);
             Locations = new LocationsOperations(this);
             Alerts = new AlertsOperations(this);
             Pools = new PoolsOperations(this);
-            Fabric = new FabricOperations(this);
-            Roles = new RolesOperations(this);
+            InfraRoles = new InfraRolesOperations(this);
+            ScaleUnits = new ScaleUnitsOperations(this);
+            Storage = new StorageOperations(this);
             Updates = new UpdatesOperations(this);
             BaseUri = new System.Uri("https://adminmanagement.local.azurestack.external");
             AcceptLanguage = "en-US";
