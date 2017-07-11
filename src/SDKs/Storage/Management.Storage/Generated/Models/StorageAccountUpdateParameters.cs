@@ -59,8 +59,7 @@ namespace Microsoft.Azure.Management.Storage.Models
         /// include: 'Hot', 'Cool'</param>
         /// <param name="enableHttpsTrafficOnly">Allows https traffic only to
         /// storage service if sets to true.</param>
-        /// <param name="networkAcls">Network ACL</param>
-        public StorageAccountUpdateParameters(Sku sku = default(Sku), IDictionary<string, string> tags = default(IDictionary<string, string>), Identity identity = default(Identity), CustomDomain customDomain = default(CustomDomain), Encryption encryption = default(Encryption), AccessTier? accessTier = default(AccessTier?), bool? enableHttpsTrafficOnly = default(bool?), StorageNetworkAcls networkAcls = default(StorageNetworkAcls))
+        public StorageAccountUpdateParameters(Sku sku = default(Sku), IDictionary<string, string> tags = default(IDictionary<string, string>), Identity identity = default(Identity), CustomDomain customDomain = default(CustomDomain), Encryption encryption = default(Encryption), AccessTier? accessTier = default(AccessTier?), bool? enableHttpsTrafficOnly = default(bool?))
         {
             Sku = sku;
             Tags = tags;
@@ -69,7 +68,6 @@ namespace Microsoft.Azure.Management.Storage.Models
             Encryption = encryption;
             AccessTier = accessTier;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
-            NetworkAcls = networkAcls;
         }
 
         /// <summary>
@@ -128,12 +126,6 @@ namespace Microsoft.Azure.Management.Storage.Models
         public bool? EnableHttpsTrafficOnly { get; set; }
 
         /// <summary>
-        /// Gets or sets network ACL
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.networkAcls")]
-        public StorageNetworkAcls NetworkAcls { get; set; }
-
-        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -152,10 +144,6 @@ namespace Microsoft.Azure.Management.Storage.Models
             if (Encryption != null)
             {
                 Encryption.Validate();
-            }
-            if (NetworkAcls != null)
-            {
-                NetworkAcls.Validate();
             }
         }
     }

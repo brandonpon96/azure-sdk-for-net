@@ -59,7 +59,7 @@ namespace Microsoft.AzureStack.Infra.Admin
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<string>> GetWithHttpMessagesAsync(string region, string alertName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Alert>> GetWithHttpMessagesAsync(string region, string alertName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <param name='region'>
         /// TODO
         /// </param>

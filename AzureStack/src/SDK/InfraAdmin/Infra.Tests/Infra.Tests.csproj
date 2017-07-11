@@ -80,7 +80,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="AlertTests.cs" />
+    <Compile Include="tests\AlertTests.cs" />
     <Compile Include="tests\PoolTests.cs" />
   </ItemGroup>
   <ItemGroup>

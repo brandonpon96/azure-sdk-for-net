@@ -54,7 +54,7 @@ namespace Microsoft.AzureStack.Infra.Admin
             /// <param name='alertName'>
             /// TODO
             /// </param>
-            public static string Get(this IAlertsOperations operations, string region, string alertName)
+            public static Alert Get(this IAlertsOperations operations, string region, string alertName)
             {
                 return operations.GetAsync(region, alertName).GetAwaiter().GetResult();
             }
@@ -71,7 +71,7 @@ namespace Microsoft.AzureStack.Infra.Admin
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> GetAsync(this IAlertsOperations operations, string region, string alertName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Alert> GetAsync(this IAlertsOperations operations, string region, string alertName, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(region, alertName, null, cancellationToken).ConfigureAwait(false))
                 {
